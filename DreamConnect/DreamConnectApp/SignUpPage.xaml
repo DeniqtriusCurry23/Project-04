@@ -1,0 +1,23 @@
+﻿<Page
+    x:Class="DreamConnectApp.BlankPage1"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:DreamConnectApp"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="#FF0499DE"  BorderBrush="Black">
+        <StackPanel HorizontalAlignment="Left" Height="770" Margin="20,190,0,0" VerticalAlignment="Top" Width="1420">
+            <TextBlock x:Name="SignUpUserNameBox" Text="UserName" TextWrapping="Wrap" FontSize="48"/>
+            <TextBox x:Name="NameTextBox" Text="" FontSize="48" AcceptsReturn="True" PlaceholderText="Enter Here" InputScope="EmailNameOrAddress" Margin="0,0,1055,0" TextChanged="NameTextBox_TextChanged"/>
+            <TextBlock x:Name="SignUpPassWordBox" Text="PassWord " TextWrapping="Wrap" FontSize="48" IsHitTestVisible="False"/>
+            <TextBox x:Name="LastNameTextBlock1" Text="" FontSize="48" PlaceholderText="Enter Here" AcceptsReturn="True" InputScope="EmailNameOrAddress" Margin="0,0,1055,0"/>
+            <TextBlock x:Name="EmailAddressTextBlock" Text="EmailAddress" TextWrapping="Wrap" FontSize="48"/>
+           
+            
+        </StackPanel>
+        <TextBlock x:Name="Please_Sign_Up_HereTextBlock" HorizontalAlignment="Left" Margin="441,56,0,0" Text="Please Sign Up Below" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="48"/>
+
+    </Grid>
+</Page>

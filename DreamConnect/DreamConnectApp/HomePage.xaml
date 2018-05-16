@@ -1,0 +1,23 @@
+﻿<Page x:Name="DreamTextBlock"
+    x:Class="DreamConnectApp.BlankPage2"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:DreamConnectApp"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"  Background="Blue" BorderBrush="Blue" Height="1015" Width="2300">
+    <StackPanel HorizontalAlignment="Left" Height="542" VerticalAlignment="Top" Width="1270">
+        <PersonPicture x:Name="PersonPicture" RenderTransformOrigin="-1,0.95" Margin="-130,0,-8,0" Height="945" AllowDrop="True">
+            <PersonPicture.Background>
+                <ImageBrush/>
+            </PersonPicture.Background>
+        </PersonPicture>
+        <TextBox x:Name="NameOfPersonTextBlock" Text="Hello," PlaceholderText="" FontSize="48" IsReadOnly="True" Margin="0,0,1105,0"/>
+        <StackPanel Height="74" Margin="0,0,10,0" Background="Black">
+            <TextBox x:Name="ConnectToDatabaseTextBox" Text="" FontSize="48" PlaceholderText="Have You Been Dreaming Lately?" InputScope="Text" TextChanged="ConnectToDatabaseTextBox_TextChanged" Height="535" Margin="0,0,-1020,0"/>
+        </StackPanel>
+        <Button Content="Button" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="22" Margin="0,0,1270,0"/>
+        <TextBlock Text="&quot;Life is nothing more than a long dream.&quot; " TextWrapping="Wrap" FontSize="58.667" Height="721" SelectionChanged="TextBlock_SelectionChanged_1" Margin="10,0,-1146,0" RenderTransformOrigin="0.275,1.58"/>
+        <StackPanel Height="100"/>
+    </StackPanel>
+</Page>
