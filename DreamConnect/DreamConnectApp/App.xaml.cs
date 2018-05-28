@@ -1,6 +1,9 @@
 ﻿using System;
+using System.Collections.ObjectModel;
 using System.Collections.Generic;
+using System.Diagnostics.Tracing;
 using System.IO;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.ApplicationModel;
@@ -14,6 +17,8 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+
+using DreamConnectApp.DreamConnectClassLibrary;
 
 namespace DreamConnectApp
 {
@@ -104,5 +109,50 @@ namespace DreamConnectApp
             //TODO: Save application state and stop any background activity
             deferral.Complete();
         }
+        public string Username { get; set; }
+        public string UserPasscode { get; set; }
+
+        
+        public ObservableCollection<User> GetData(string connectionString)
+        {
+            const string GetUserDataQuery = "INSERT INTO USER VALUES({x,{y})";
+
+            var Data = new ObservableCollection<User>();
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    if (conn.State == System.Data.ConnectionState.Open)
+                    {
+                        using (SqlCommand cmd = conn.CreateCommand())
+                        {
+                            cmd.CommandText = GetUserDataQuery;
+                            using (SqlDataReader reader = cmd.ExecuteReader())
+                            {
+                                while (reader.Read())
+                                {
+                                    var User = new User();
+                                    User.Username = reader.GetString(0);
+                                    User.UserPasscode = reader.GetString(1);
+
+
+
+                                }
+                            }
+                        }
+                    }
+                }
+                return Data;
+            }
+            catch (Exception eSql)
+            {
+                Console.WriteLine("Exception: " + eSql.Message);
+            }
+            return null;
+        }
+
+
     }
 }
+

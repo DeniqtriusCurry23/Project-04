@@ -37,15 +37,16 @@ namespace DreamConnectApp
             this.InitializeComponent();
         }
 
-        private void SignUpButton_Click(object sender, RoutedEventArgs e)
+        private void UserNameTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-
-            this.Frame.Navigate(typeof(DreamPage));
+           
         }
+
         private void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
         {
 
         }
+       
 
         private void UserNameTextBox_TextChanged(object sender, RoutedEventArgs e)
         {
@@ -55,6 +56,31 @@ namespace DreamConnectApp
         {
 
         }
+        private void SignUpButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (SignUpButton != null)
+            {
+                TextBlock textBlock = new TextBlock();
+                textBlock.DataContext = new object();
+                DataContext.ToString();
+                var textblockdatacontent = DataContext;
+                var text = DataContext;
+                PasswordBox passWord = new PasswordBox();
+                passWord.DataContext = new object();
+                DataContext.ToString();
+                var password = DataContext;
+
+
+
+
+
+                var SQLQuery = "INSERT INTO USER VALUES(${x},{y})";
+
+                this.Frame.Navigate(typeof(DreamConnectPage));
+            }
+        }
+
+
     }
 }
 

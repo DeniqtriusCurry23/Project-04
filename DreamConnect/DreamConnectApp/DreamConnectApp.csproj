@@ -95,12 +95,14 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DataClass.cs" />
+    <Compile Include="DreamConnectClassLibrary\Connection.cs" />
+    <Compile Include="DreamConnectClassLibrary\Profile.cs" />
+    <Compile Include="DreamConnectClassLibrary\User.cs" />
     <Compile Include="DreamConnectContentDialog.xaml.cs">
       <DependentUpon>DreamConnectContentDialog.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DreamPage.xaml.cs">
-      <DependentUpon>DreamPage.xaml</DependentUpon>
+    <Compile Include="DreamConnectPage.xaml.cs">
+      <DependentUpon>DreamConnectPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="NewSignUpPage.xaml.cs">
       <DependentUpon>NewSignUpPage.xaml</DependentUpon>
@@ -150,7 +152,7 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <Page Include="DreamPage.xaml">
+    <Page Include="DreamConnectPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

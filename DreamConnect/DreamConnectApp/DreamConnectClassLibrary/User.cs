@@ -5,12 +5,25 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
 using System.Data.Common;
+using System.Diagnostics.Tracing;
 using System.Collections.ObjectModel;
 using System.Data.SqlClient;
 using System.Diagnostics;
+using System.IO;
+using System.Runtime.InteropServices.WindowsRuntime;
+using Windows.Foundation;
+using Windows.Foundation.Collections;
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Controls.Primitives;
+using Windows.UI.Xaml.Data;
+using Windows.UI.Xaml.Input;
+using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Navigation;
+using DreamConnectApp.DreamConnectClassLibrary;
 namespace DreamConnectApp
 {
-     public class DataClass : INotifyPropertyChanged
+     public class User : INotifyPropertyChanged
     {
         
         public string Username{ get; set; }
@@ -19,7 +32,7 @@ namespace DreamConnectApp
         private string connectionString = @"Data Source=LAPTOP-PVNMLFT6\SQLEXPRESS;Initial Catalog=sqlexpress.DreamConnectDatabase.dbo;Integrated Security=SSPI";
 
         public event PropertyChangedEventHandler PropertyChanged;
-        private void NotifyPropertyChanged(string propertyName)
+        public void NotifyPropertyChanged(string propertyName)
         {
             if (PropertyChanged != null)
             {
@@ -28,11 +41,11 @@ namespace DreamConnectApp
         }
 
 
-        public ObservableCollection<DataClass> GetData(string connectionString)
+        public ObservableCollection<User> GetData(string connectionString)
         {
             const string GetUserDataQuery = "INSERT INTO USER VALUES({x,{y})"; 
 
-            var Data = new ObservableCollection<DataClass>();
+            var Data = new ObservableCollection<User>();
             try 
             {
                 using (SqlConnection conn = new SqlConnection(connectionString))
@@ -47,7 +60,7 @@ namespace DreamConnectApp
                             {
                                 while (reader.Read())
                                 {
-                                    var User = new DataClass();
+                                    var User = new User();
                                     User.Username = reader.GetString(0);
                                     User.UserPasscode = reader.GetString(1);
                                     

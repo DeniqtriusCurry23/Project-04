@@ -13,6 +13,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using System.Diagnostics;
+using DreamConnectApp.DreamConnectClassLibrary;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -70,13 +71,18 @@ namespace DreamConnectApp
         {
             if (LoginPageButton != null)
             {
-                var x = UserNameTextBlock;
-                var y = PassWordTextBlock;
+                TextBlock textBlock = new TextBlock();
+                textBlock.DataContext = new object();
+                DataContext.ToString();
+                var textblockdatacontent = DataContext;
+                var text = PassWordTextBlock;
+                Connection connection = new Connection();
+                connection.ConnectionID = textblockdatacontent;
                 var SQLQuery = "INSERT INTO USER VALUES(${x},{y})";
                
-                this.Frame.Navigate(typeof(DreamPage));
+                this.Frame.Navigate(typeof(DreamConnectPage));
 
-
+            
             }
             
 
